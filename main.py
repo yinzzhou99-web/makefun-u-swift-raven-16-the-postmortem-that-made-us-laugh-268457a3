@@ -25,6 +25,7 @@ def main() -> None:
     path = os.path.join(out_dir, "entry.txt")
     with open(path, "w", encoding="utf-8") as handle:
         handle.write(STORY)
+    os.chmod(path, 0o644)  # scorer reads as another user; never leave 0600/0660
     print(f"wrote {len(STORY)} characters to {path}")
 
 
